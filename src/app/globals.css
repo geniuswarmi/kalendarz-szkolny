@@ -1,0 +1,308 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f3f4f6;
+  --foreground: #111827;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+@page landscape {
+  size: A4 landscape;
+  margin: 4mm;
+}
+
+@page portrait {
+  size: A4 portrait;
+  margin: 5mm;
+}
+
+html.print-landscape {
+  page: landscape;
+}
+
+html.print-portrait {
+  page: portrait;
+}
+
+@media print {
+  html,
+  body {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+    color: black !important;
+    font-size: 9px !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    box-sizing: border-box !important;
+  }
+
+  .print\:hidden,
+  header a,
+  footer,
+  button {
+    display: none !important;
+  }
+
+  header {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin-bottom: 4px !important;
+  }
+
+  header > div {
+    max-width: 100% !important;
+    padding: 0 !important;
+    justify-content: flex-start !important;
+  }
+
+  header img {
+    width: 30px !important;
+    height: 30px !important;
+    object-fit: contain !important;
+  }
+
+  header h1 {
+    font-size: 12px !important;
+    text-align: left !important;
+    line-height: 1.2 !important;
+  }
+
+  header p {
+    font-size: 8px !important;
+  }
+
+  main {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  main > div {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .calendar-layout {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  html.print-landscape .print-calendar-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    grid-template-rows: repeat(3, auto) !important;
+    gap: 3px !important;
+    width: 100% !important;
+  }
+
+  html.print-portrait .print-calendar-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    grid-template-rows: repeat(4, auto) !important;
+    gap: 5px !important;
+    width: 100% !important;
+  }
+
+  .print-month {
+    width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .print-month > div {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 2px !important;
+    box-shadow: none !important;
+  }
+
+  .print-month h3 {
+    font-size: 9px !important;
+    padding: 2px !important;
+    margin: 0 0 2px 0 !important;
+    line-height: 1.2 !important;
+  }
+
+  .calendar-days-grid,
+  .calendar-weekdays-grid {
+    display: grid !important;
+    grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+    background: white !important;
+  }
+
+  .calendar-days-grid {
+    column-gap: 2px !important;
+    row-gap: 1px !important;
+  }
+
+  .calendar-days-grid > div {
+    box-sizing: border-box !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    padding: 1px !important;
+    text-align: center !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: none !important;
+    background-clip: padding-box !important;
+  }
+
+  .calendar-day-cell {
+    border: none !important;
+    outline: none !important;
+    min-width: 0 !important;
+    background-clip: padding-box !important;
+  }
+
+  .calendar-weekdays-grid {
+    column-gap: 2px !important;
+  }
+
+  .calendar-weekdays-grid > div {
+    padding: 2px 1px !important;
+    font-size: 8px !important;
+    text-align: center !important;
+  }
+
+  html.print-landscape .calendar-days-grid > div {
+    height: 15px !important;
+    min-height: 15px !important;
+    font-size: 8px !important;
+    line-height: 1 !important;
+  }
+
+  html.print-landscape .calendar-weekdays-grid > div {
+    padding-top: 1px !important;
+    padding-bottom: 1px !important;
+    font-size: 7px !important;
+  }
+
+  html.print-landscape .print-month h3 {
+    font-size: 9px !important;
+    padding: 2px !important;
+    margin-bottom: 1px !important;
+  }
+
+  html.print-landscape .print-month > div {
+    padding: 1px !important;
+  }
+
+  html.print-landscape .print-calendar-grid {
+    gap: 3px !important;
+  }
+
+  html.print-portrait .calendar-days-grid > div {
+    height: 19px !important;
+    min-height: 19px !important;
+    font-size: 8px !important;
+    line-height: 1.2 !important;
+  }
+
+  html.print-portrait .calendar-weekdays-grid > div {
+    font-size: 8px !important;
+  }
+
+  .calendar-day-cell span {
+    font-size: 7px !important;
+    line-height: 1 !important;
+  }
+
+  .print-legend {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-top: 4px !important;
+    margin-bottom: 0 !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    page-break-before: avoid !important;
+  }
+
+  .print-legend > div:first-child {
+    display: block !important;
+    width: 100% !important;
+    padding: 3px 6px !important;
+    margin: 0 !important;
+    border: 1px solid #bbb !important;
+    box-shadow: none !important;
+    background: white !important;
+  }
+
+  .print-legend h3 {
+    font-size: 8px !important;
+    margin: 0 0 2px 0 !important;
+    padding: 0 !important;
+  }
+
+  .print-legend ul {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 2px 12px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+  }
+
+  .print-legend li {
+    display: inline-flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 3px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    white-space: nowrap !important;
+    font-size: 7px !important;
+    line-height: 1.2 !important;
+  }
+
+  .print-legend li > span:first-child {
+    width: 8px !important;
+    height: 8px !important;
+    min-width: 8px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .print-legend > div:not(:first-child) {
+    display: none !important;
+  }
+
+  .print-month,
+  .print-month > div,
+  .print-legend > div {
+    box-shadow: none !important;
+  }
+
+  a {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+}

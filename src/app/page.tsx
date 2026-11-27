@@ -91,15 +91,20 @@ export default function HomePage() {
       </main>
 
       <footer className="bg-[#3f3b3a] text-gray-300 text-center text-xs py-5 px-3 mt-8">
-        ZS nr 4 im. J. Groszkowskiego · Tychy ·{" "}
-        <a
-          href="https://www.zs4.oswiata.tychy.pl/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:underline"
-        >
-          zs4.oswiata.tychy.pl
-        </a>
+        <div>
+          ZS nr 4 im. J. Groszkowskiego · Tychy ·{" "}
+          <a
+            href="https://www.zs4.oswiata.tychy.pl/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline"
+          >
+            zs4.oswiata.tychy.pl
+          </a>
+        </div>
+        <div className="mt-1.5 text-gray-400">
+          Realizacja: Kyrylo Voitsekhovskyi
+        </div>
       </footer>
     </div>
   );

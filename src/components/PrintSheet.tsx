@@ -158,7 +158,7 @@ export function PrintSheet({ year, events, categories }: Props) {
   const firstPractical = practicalExams.at(0);
 
   return (
-    <div className="hidden print:flex print:flex-col print:justify-between print-sheet w-full min-h-[196mm] text-gray-900 bg-white">
+    <div className="hidden print:flex print:flex-col print:justify-between print-sheet w-full h-[190mm] max-h-[192mm] overflow-hidden text-gray-900 bg-white">
       {/* 1. NAGŁÓWEK WYDRUKU */}
       <div className="flex items-center justify-between pb-2 border-b border-gray-300">
         <a
